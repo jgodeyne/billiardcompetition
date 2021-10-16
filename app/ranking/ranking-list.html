@@ -1,0 +1,36 @@
+<div id="ranking" *ngIf="total_results">
+    <h2>Klassement</h2>
+    <table class="table table-striped table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th colspan="2">Naam</th>
+                <th>Aantal<br/>Wedstr.</th>
+                <th>Ranking<br/>Punten</th>
+                <th>Match<br/>Punten</th>
+                <th>Bonus<br/>Punten</th>
+                <th>Punten</th>
+                <th>Beurten</th>
+                <th colspan="2">Gemiddelde</th>
+                <th colspan="2">Hoogste<br/>Reeks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let result of total_results; let i=index" [routerLink]="['/player',result.playerId]">
+                <td>{{i+1}}</td>
+                <td>{{result.playerName}}</td>
+                <td>({{result.playerTsp}})</td>
+                <td>{{result.nbrOfMatches}}</td>
+                <td>{{result.rankingpoints}}</td>
+                <td>{{result.matchpoints}}</td>
+                <td>{{result.bonuspoints}}</td>
+                <td>{{result.points}}</td>
+                <td>{{result.innings}}</td>
+                <td>{{result.average | number:'1.2-2'}}</td>
+                <td>({{result.avgpct | number:'1.2-2'}} %)</td>
+                <td>{{result.highestRun}}</td>
+                <td>({{result.highestRunPct | number:'1.2-2'}} %)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

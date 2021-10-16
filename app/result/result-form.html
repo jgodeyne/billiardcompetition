@@ -1,0 +1,32 @@
+<div class="container">
+<h2>Wedstrijd Uitslag</h2>
+<form #matchResultForm="ngForm">
+    <table class="form">
+        <thead>
+            <tr>
+                <th>Speler</th>
+                <th>Punten</th>
+                <th>Beurten</th>
+                <th>Hoogste<br>Reeks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{match.player_1.name}} ({{match.player_1.tsp}})</td>
+                <td>&nbsp;<input name="p1points" class="form-control" type="number"  maxlength="3" size="3" [(ngModel)]="player1Result.points" autofocus required/></td>
+                <td>&nbsp;<input name="p1innings" class="form-control" type="number"  maxlength="3" size="3" [(ngModel)]="player1Result.innings" required /></td>
+                <td>&nbsp;<input name="p1highestrun" class="form-control" type="number"  maxlength="3" size="3" id="player1Result.highestRun" required /></td>
+            </tr>
+            <tr>
+                <td>{{match.player_2.name}} ({{match.player_2.tsp}})</td>
+                <td>&nbsp;<input name="p2points" class="form-control" type="number"  maxlength="3" size="3" [(ngModel)]="player2Result.points" required/></td>
+                <td>&nbsp;<input name="p2innings" class="form-control" type="number"  maxlength="3" size="3" [(ngModel)]="player2Result.innings" required /></td>
+                <td>&nbsp;<input name="p2highestrun" class="form-control" type="number"  maxlength="3" size="3" [(ngModel)]="player2Result.highestRun" required/></td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </p>
+</form>
+</div>

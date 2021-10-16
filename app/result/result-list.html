@@ -1,0 +1,42 @@
+<div *ngIf="results">
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>Tegenspeler</th>
+                <th>Punten</th>
+                <th>Beurten</th>
+                <th colspan="2">Gemiddelde</th>
+                <th>Hoogste<br>Reeks</th>
+                <th>Match<br>Punten</th>
+                <th>Bonus<br>Punten</th>
+                <th>Ranking<br>Punten</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let result of results">
+                <td>{{result.opponent_player_name}}</td>
+                <td>{{result.points}}</td>
+                <td>{{result.innings}}</td>
+                <td>{{result.average | number:'1.2-2'}}</td>
+                <td>({{result.average/player.min*100 | number:'1.2-2'}} %)</td>
+                <td>{{result.highest_run}}</td>
+                <td>{{result.matchpoints}}</td>
+                <td>{{result.bonuspoints}}</td>
+                <td>{{result.rankingpoints}}</td>
+            </tr>
+        </tbody>
+        <tfoot class="total" *ngIf="ranking">
+            <tr>
+                <th></th>
+                <th>{{ranking.points}}</th>
+                <th>{{ranking.innings}}</th>
+                <th>{{ranking.average | number:'1.2-2'}}</th>
+                <th>{{ranking.avgpct  | number:'1.2-2'}} %</th>
+                <th>{{ranking.highestRun}}</th>
+                <th>{{ranking.matchpoints}}</th>
+                <th>{{ranking.bonuspoints}}</th>
+                <th>{{ranking.rankingpoints}}</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

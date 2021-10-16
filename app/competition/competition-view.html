@@ -1,0 +1,25 @@
+<div id="competition-view" *ngIf="competition">
+    <div id="heading">
+        <h1>{{competition.name}}</h1>
+    </div>
+    <div id="message" class="alert alert-danger" *ngIf="message">{{message}}</div>
+    <ranking-list [competition]="competition"></ranking-list>
+    <div id="thisweek">
+        <h2>Deze Week</h2>
+        <match-list [competition]="competition" [roundidx]="0"></match-list>
+    </div>
+    <div id="schema" *ngIf="rounds">
+        <h2>Kalender</h2>
+        <ul class="pagination">
+            <li class="disabled"><a>Ronde</a></li>
+            <li *ngFor="let round of rounds"><a (click)="goTo('ronde'+round)">{{round}}</a></li>
+        </ul>
+
+        <div *ngFor="let round of rounds">
+            <div id="ronde{{round}}">
+                <h3>Ronde {{round}} <a (click)="goTo('schema')"><span class="glyphicon glyphicon-arrow-up"></span></a></h3>
+                <match-list [competition]="competition" [roundidx]="round"></match-list>
+            </div>
+        </div>
+    </div>
+</div>

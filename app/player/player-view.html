@@ -1,0 +1,28 @@
+<div id="player-view" *ngIf="player">
+    <div id="heading">
+        <h1>{{player.name}}</h1>
+    </div>
+    <div id="message" class="alert alert-danger" *ngIf="message">{{message}}</div>
+    <div id="playerInfo">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Lic:</th><td>{{player.lic}}</td>
+                    <th>Club:</th><td>{{player.club}}</td>
+                </tr>
+                <tr>
+                    <th>Tsp:</th><td>{{player.tsp}}</td>
+                    <th>Gemiddelde:</th><td>{{player.min}} - {{player.max}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="schedule">
+        <h2>Kalender</h2>
+        <match-list [player]="player" [roundidx]="0"></match-list>
+    </div>
+    <div id="results">
+        <h2>Resultaten</h2>
+        <result-list [player]="player"></result-list>
+    </div>
+</div>

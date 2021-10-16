@@ -1,0 +1,13 @@
+<h1>Competities</h1>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Naam</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let competition of competitions" [routerLink]="['/competition',competition.id]">
+            <td>{{competition.name}}</td>
+        </tr>
+    </tbody>
+</table>

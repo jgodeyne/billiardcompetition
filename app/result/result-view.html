@@ -1,0 +1,43 @@
+<div *ngIf="match">
+    <p>Datum: {{match.date | date:'dd-MM-y'}}</p>
+    <p>Locatie: {{match.place}}</p>
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>Naam</th>
+                <th>TSP</th>
+                <th>Ranking<br>Punten</th>
+                <th>Match<br>Punten</th>
+                <th>Bonus<br>Punten</th>
+                <th>Punten</th>
+                <th>Beurten</th>
+                <th>Gemiddelde</th>
+                <th>Hoogste<br>Reeks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{match.player1.name}}</td>
+                <td>{{match.player1.tsp}}</td>
+                <td>{{match.result1.rankingpoints}}</td>
+                <td>{{match.result1.matchpoints}}</td>
+                <td>{{match.result1.bonuspoints}}</td>
+                <td>{{match.result1.points}}</td>
+                <td>{{match.result1.innings}}</td>
+                <td>{{match.result1.average | number:'1.2-2'}}</td>
+                <td>{{match.result1.highest_run}}</td>
+            </tr>
+            <tr>
+                <td>{{match.player2.name}}</td>
+                <td>{{match.player2.tsp}}</td>
+                <td>{{match.result2.rankingpoints}}</td>
+                <td>{{match.result2.matchpoints}}</td>
+                <td>{{match.result2.bonuspoints}}</td>
+                <td>{{match.result2.points}}</td>
+                <td>{{match.result2.innings}}</td>
+                <td>{{match.result2.average | number:'1.2-2'}}</td>
+                <td>{{match.result2.highest_run}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
